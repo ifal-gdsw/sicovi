@@ -1,4 +1,4 @@
-package br.du.ifal.sicovi.domain;
+package br.edu.ifal.sicovi.domain;
 
 public enum StatusOcorrencia {
 	EM_ANDAMENTO("EM ANDAMENTO"), ENCERRADA("ENCERRADA"), FINALIZADA(
