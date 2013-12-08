@@ -1,4 +1,4 @@
-package br.du.ifal.sicovi.controller;
+package br.edu.ifal.sicovi.controller;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

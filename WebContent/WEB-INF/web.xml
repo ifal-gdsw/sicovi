@@ -16,8 +16,21 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+
 	<context-param>
     	<param-name>primefaces.THEME</param-name>
     	<param-value>south-street</param-value>
   	</context-param>
+
+
+	<filter>
+		<filter-name>jpa_filter</filter-name>
+		<filter-class>br.edu.ifal.sicovi.filter.PersistenceFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>jpa_filter</filter-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</filter-mapping>
+
 </web-app>

@@ -1,4 +1,4 @@
-package br.du.ifal.sicovi.domain;
+package br.edu.ifal.sicovi.domain;
 
 import java.io.Serializable;
 import java.util.List;

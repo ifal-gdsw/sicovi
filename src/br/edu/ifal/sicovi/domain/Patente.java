@@ -1,29 +1,36 @@
-package br.du.ifal.sicovi.domain;
+package br.edu.ifal.sicovi.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tipo_viatura")
-public class TipoViatura implements Serializable {
-
+@Table(name = "patente")
+public class Patente implements Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "id", sequenceName = "seq_tipo_viatura_id")
+	@SequenceGenerator(name = "id", sequenceName = "seq_patente_id")
 	@GeneratedValue(generator = "id", strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(nullable = false)
 	private String nome;
-	private String descricao;
+
+	@OneToMany(mappedBy = "patente", fetch = FetchType.LAZY)
+	private List<Militar> militares;
 
 	/**
 	 * @return the id
@@ -56,18 +63,18 @@ public class TipoViatura implements Serializable {
 	}
 
 	/**
-	 * @return the descricao
+	 * @return the militares
 	 */
-	public String getDescricao() {
-		return descricao;
+	public List<Militar> getMilitares() {
+		return militares;
 	}
 
 	/**
-	 * @param descricao
-	 *            the descricao to set
+	 * @param militares
+	 *            the militares to set
 	 */
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setMilitares(List<Militar> militares) {
+		this.militares = militares;
 	}
 
 	/*
@@ -79,9 +86,9 @@ public class TipoViatura implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((militares == null) ? 0 : militares.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -99,16 +106,16 @@ public class TipoViatura implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TipoViatura other = (TipoViatura) obj;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
+		Patente other = (Patente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (militares == null) {
+			if (other.militares != null)
+				return false;
+		} else if (!militares.equals(other.militares))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)

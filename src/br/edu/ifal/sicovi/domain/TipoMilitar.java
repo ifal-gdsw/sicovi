@@ -1,4 +1,4 @@
-package br.du.ifal.sicovi.domain;
+package br.edu.ifal.sicovi.domain;
 
 public enum TipoMilitar {
 	COMANDANTE("COMANDANTE"), CONDUTOR("CONDUTOR");
