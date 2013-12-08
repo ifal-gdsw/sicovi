@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+      
+      <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>SICOVI</title>
+            </f:facet>
+
+        </h:head>
+      	<h:body>
+      		<p:layout fullPage="true">
+      			<p:layoutUnit position="center">
+	      			<h:form id="formLogin">
+	      				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" /> 
+		      				<p:panelGrid columns="2">
+						     	<f:facet name="header">  
+						        		Sicovi 
+						    	</f:facet>  
+						  			
+						    	<h:outputLabel id="longin" value="Login: " />  
+						    	<p:inputText id="txtLogin" value="#{autenticadorBean.login}"/>  
+						  
+						    	<h:outputLabel id="senha" value="Senha: " />  
+						    	<p:password id="txtSenha" required="true" value="#{autenticadorBean.senha}"/>  
+						  
+						    	<f:facet name="footer">  
+						        	<p:commandButton value="OK" action="#{autenticadorBean.autentica}" icon="ui-icon-check" style="margin:0"/>  
+						    	</f:facet> 
+		      				</p:panelGrid>
+		      		</h:form>
+		      		<h:messages  />
+      			</p:layoutUnit>
+      		</p:layout>
+      	</h:body>
+</html>
