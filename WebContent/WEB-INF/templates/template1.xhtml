@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>SICOVI</title>
+            </f:facet>
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/principal.css" />
+
+            <style type="text/css">
+                   .ui-layout-north {
+                          z-index:20 !important;
+                         overflow:visible !important;;
+                    }
+
+                  .ui-layout-north .ui-layout-unit-content {
+                        overflow:visible !important;
+                   }
+            </style>
+        </h:head>
+
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit id="top" position="north" size="50">
+					<p:menubar>
+                        <p:submenu label="Ocorrências" >
+                            <p:menuitem value="Cadastrar" icon="ui-icon-document" url="formCadUser.xhtml" update="conteudo"/>
+                            <p:menuitem value="Alterar" url="#" />
+                            <p:menuitem value="Listar" url="#" />
+                        </p:submenu>
+
+                        <p:submenu label="Viatura" >
+                            <p:menuitem value="Cadastrar" icon="ui-icon-document" url="#" ></p:menuitem>
+                            <p:menuitem value="Localizar" url="#" ></p:menuitem>
+                            <p:menuitem value="Baixar" url="#"></p:menuitem>
+                            <p:menuitem valeu="Listar" url="#"></p:menuitem>
+                            
+                        </p:submenu>
+
+                        <p:submenu label="Usuário" >
+                            <p:menuitem value="Cadastrar" icon="ui-icon-document" url="#" />
+                            <p:menuitem value="Alterar" url="#" />
+                            <p:menuitem value="Listar" url="#" />
+                        </p:submenu>
+                    </p:menubar>
+                </p:layoutUnit>
+
+                <p:layoutUnit id="bottom" position="south" size="60">
+                   
+                </p:layoutUnit>
+				
+                <p:layoutUnit id="left" position="west" size="300"  collapsible="true" header="Options" minSize="280">
+                    <p:accordionPanel>
+                        <p:tab title="Menu 1">
+                            
+                        </p:tab>
+
+                        <p:tab title="Menu 2">
+                            <h:outputText value="Menu 2 Content" />
+                        </p:tab>
+
+                        <p:tab title="Menu 3">
+                            <h:outputText value="Menu 3 Content" />
+                        </p:tab>
+                    </p:accordionPanel>
+                </p:layoutUnit>
+				
+	                <p:layoutUnit id="conteudo" position="center">
+	                    <ui:insert name="conteudo"></ui:insert>	                    
+	                </p:layoutUnit>
+	          
+
+            </p:layout>
+
+            <p:dialog header="Basic Dialog" widgetVar="dlg1" modal="true">
+                <h:outputText value="Resistance to PrimeFaces is futile!" />
+            </p:dialog>
+
+        </h:body>
+
+    </f:view>
+</html>

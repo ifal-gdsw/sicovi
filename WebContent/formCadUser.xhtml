@@ -1,0 +1,52 @@
+<ui:composition template="/WEB-INF/templates/template1.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+	
+	<ui:define name="conteudo">
+		<h:form>
+		
+		<p:panel id="panelCadUser"  styleClass="panelResposta" columns="1" >  
+		    <f:facet name="header">  
+		        Cadastro de Usuario 
+		    </f:facet>  
+		  
+		    <p:panel>
+		    	<h:panelGrid columns="2">
+		    		<h:outputLabel id="campo-cpf" value="Matricula: " />  
+		    		<p:inputText id="txtMatricula" value="" /> 
+		    		<h:outputLabel id="campo-Nome" value="Nome: " />  
+		    		<p:inputText id="txtNome" value="" size="50"/>
+		    	</h:panelGrid>
+		    </p:panel>
+		  
+		  	<p:separator style="height:2px" />
+		  	
+		  	<p:panel>
+			  	<div>
+			  		<h:outputLabel id="campo-tipoUser" for="campo-tipoUser" value="Tipo: " />
+				    <p:selectOneMenu id="selectUser" value="">  
+			            <f:selectItems var="tipoUsuario" value="" itemLabel="" itemValue="" />   
+	        		</p:selectOneMenu>
+			  	</div>
+			  	<h:panelGrid columns="2">						  			
+						<h:outputLabel id="longin" value="Login: " />  
+						<p:inputText id="txtLogin" value=""/>  
+							  
+						<h:outputLabel id="senha" value="Senha: " />  
+						<p:password id="txtSenha" required="true" value=""/>  
+						
+						<h:outputLabel id="confirmaSenha" value="Confirma Senha: " />  
+						<p:password id="txtConfirmaSenha" required="true" value=""/>
+			    </h:panelGrid>
+		  </p:panel>
+		    <f:facet name="footer">  
+		        <p:commandButton value="Salvar" styleClass="ui-priority-primary"/>  
+		    </f:facet>  
+		</p:panel>
+	</h:form>
+	</ui:define>
+	
+</ui:composition>
