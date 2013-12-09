@@ -36,22 +36,21 @@
 					<p:menubar>
                         <p:submenu label="Ocorrências" >
                             <p:menuitem value="Cadastrar" icon="ui-icon-document" url="#" update="conteudo"/>
-                            <p:menuitem value="Alterar" url="#" />
-                            <p:menuitem value="Listar" url="#" />
+                            <p:menuitem value="Alterar" icon="ui-icon-pencil" url="#" />
+                            <p:menuitem value="Listar" icon="ui-icon-document-b" url="#" />
                         </p:submenu>
 
                         <p:submenu label="Viatura" >
                             <p:menuitem value="Cadastrar" icon="ui-icon-document" url="#" ></p:menuitem>
-                            <p:menuitem value="Localizar" url="#" ></p:menuitem>
-                            <p:menuitem value="Baixar" url="#"></p:menuitem>
-                            <p:menuitem valeu="Listar" url="#"></p:menuitem>
-                            
+                            <p:menuitem value="Localizar" icon="ui-icon-search" url="#" ></p:menuitem>
+                            <p:menuitem value="Baixar" icon="ui-icon-arrowthickstop-1-s" url="#"></p:menuitem>
+                            <p:menuitem value="Listar" icon="ui-icon-document-b" url="#"></p:menuitem>                            
                         </p:submenu>
 
                         <p:submenu label="Usuário" >
                             <p:menuitem value="Cadastrar" icon="ui-icon-document" url="formCadUser.xhtml" update="conteudo" />
-                            <p:menuitem value="Alterar" url="#" />
-                            <p:menuitem value="Listar" url="#" />
+                            <p:menuitem value="Alterar" icon="ui-icon-pencil" url="#" />
+                            <p:menuitem value="Listar" icon="ui-icon-document-b" url="#" />
                         </p:submenu>
                     </p:menubar>
                 </p:layoutUnit>
@@ -61,19 +60,9 @@
                 </p:layoutUnit>
 				
                 <p:layoutUnit id="left" position="west" size="300"  collapsible="true" header="Options" minSize="280">
-                    <p:accordionPanel>
-                        <p:tab title="Menu 1">
-                            
-                        </p:tab>
-
-                        <p:tab title="Menu 2">
-                            <h:outputText value="Menu 2 Content" />
-                        </p:tab>
-
-                        <p:tab title="Menu 3">
-                            <h:outputText value="Menu 3 Content" />
-                        </p:tab>
-                    </p:accordionPanel>
+                    <p:panel stayleClass="menuEsquerdo">
+                    	<p:calendar style="margin: 0 auto; width: 100px;" mode="inline" navigator="none"/>
+                    </p:panel>
                 </p:layoutUnit>
 				
 	                <p:layoutUnit id="conteudo" position="center">

@@ -25,13 +25,12 @@
 		  	<p:separator style="height:2px" />
 		  	
 		  	<p:panel>
-			  	<div>
-			  		<h:outputLabel id="campo-tipoUser" for="campo-tipoUser" value="Tipo: " />
-				    <p:selectOneMenu id="selectUser" value="">  
+			  	<h:panelGrid columns="2">
+			  			<h:outputLabel id="campo-tipoUser" for="campo-tipoUser" value="Tipo: " />
+				    	<p:selectOneMenu id="selectUser" value="">  
 			            <f:selectItems var="tipoUsuario" value="" itemLabel="" itemValue="" />   
-	        		</p:selectOneMenu>
-			  	</div>
-			  	<h:panelGrid columns="2">						  			
+	        			</p:selectOneMenu>
+	        									  			
 						<h:outputLabel id="longin" value="Login: " />  
 						<p:inputText id="txtLogin" value=""/>  
 							  
