@@ -1,0 +1,66 @@
+<ui:composition template="/WEB-INF/templates/template1.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+		<h:form>
+
+			<p:panel id="panelCadUser" styleClass="panelResposta" columns="1">
+				<f:facet name="header">  
+		        Cadastro de Usuario 
+		    </f:facet>
+
+				<p:panel>
+					<h:panelGrid columns="2">
+						<h:outputLabel id="campo-cpf" value="Matricula: " />
+						<p:inputText id="txtMatricula"
+							value="#{usuarioController.usuario.matricula}" />
+						<h:outputLabel id="campo-Nome" value="Nome: " />
+						<p:inputText id="txtNome" value="#{usuarioController.nomeUsuario}"
+							size="50" />
+					</h:panelGrid>
+				</p:panel>
+
+				<p:separator style="height:2px" />
+
+				<p:panel>
+					<h:panelGrid columns="3">
+						<h:outputLabel id="campo-tipoUser" for="campo-tipoUser"
+							value="Tipo: " />
+						<p:selectOneMenu id="selectUser" value="#{usuarioController.usuario.tipo}">
+							<f:selectItem itemValue="ROLE_ADMINISTRADOR"
+								itemLabel="Administrador" />
+							<f:selectItem itemValue="ROLE_ATENDENTE" itemLabel="Atendente" />
+						</p:selectOneMenu>
+						<p:message for="selectUser" />
+
+						<h:outputLabel id="longin" value="Login: " />
+						<p:inputText id="txtLogin"
+							value="#{usuarioController.usuario.usuario}" />
+						<p:message for="txtLogin" />
+
+						<h:outputLabel id="senha" value="Senha: " />
+						<p:password id="txtSenha" required="true"
+							value="#{usuarioController.usuario.senha}" />
+						<p:message for="txtSenha" />
+
+						<h:outputLabel id="confirmaSenha" value="Confirma Senha: " />
+						<p:password id="txtConfirmaSenha" required="true"
+							value="#{usuarioController.confirmaSenha}" />
+						<p:message for="txtConfirmaSenha" />
+					</h:panelGrid>
+				</p:panel>
+				<f:facet name="footer">
+					<p:commandButton ajax="false" value="Salvar"
+						actionListener="#{usuarioController.cadastrarUsuario}"
+						styleClass="ui-priority-primary" />
+				</f:facet>
+			</p:panel>
+			<p:messages />
+		</h:form>
+	</ui:define>
+
+</ui:composition>

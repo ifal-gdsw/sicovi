@@ -23,14 +23,20 @@ public class Usuario implements Serializable {
 	@GeneratedValue(generator = "id", strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String usuario;
 	@Column(nullable = false)
 	private String senha;
 
+	@Column(nullable = false)
+	private String matricula;
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private TipoUsuario tipo = TipoUsuario.ATENDENTE;
+	private TipoUsuario tipo = TipoUsuario.ROLE_ATENDENTE;
+
+	@Column(nullable = false)
+	private Boolean ativo = true;
 
 	/**
 	 * @return the id
@@ -78,6 +84,21 @@ public class Usuario implements Serializable {
 	}
 
 	/**
+	 * @return the matricula
+	 */
+	public String getMatricula() {
+		return matricula;
+	}
+
+	/**
+	 * @param matricula
+	 *            the matricula to set
+	 */
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	/**
 	 * @return the tipo
 	 */
 	public TipoUsuario getTipo() {
@@ -92,6 +113,21 @@ public class Usuario implements Serializable {
 		this.tipo = tipo;
 	}
 
+	/**
+	 * @return the ativo
+	 */
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	/**
+	 * @param ativo
+	 *            the ativo to set
+	 */
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -101,7 +137,10 @@ public class Usuario implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((ativo == null) ? 0 : ativo.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((matricula == null) ? 0 : matricula.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
@@ -122,10 +161,20 @@ public class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
+		if (ativo == null) {
+			if (other.ativo != null)
+				return false;
+		} else if (!ativo.equals(other.ativo))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (matricula == null) {
+			if (other.matricula != null)
+				return false;
+		} else if (!matricula.equals(other.matricula))
 			return false;
 		if (senha == null) {
 			if (other.senha != null)

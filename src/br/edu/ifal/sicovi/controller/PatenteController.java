@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
 
 import br.edu.ifal.sicovi.dao.PatenteDAO;
 import br.edu.ifal.sicovi.domain.Patente;
@@ -17,9 +15,7 @@ public class PatenteController {
 	private PatenteDAO dao;
 
 	public PatenteController() {
-		EntityManager em = (EntityManager) FacesContext.getCurrentInstance()
-				.getExternalContext().getRequestMap().get("EntityManager");
-		this.dao = new PatenteDAO(em);
+		this.dao = new PatenteDAO();
 	}
 
 	/**
@@ -35,7 +31,7 @@ public class PatenteController {
 
 	/**
 	 * @param patentes
-	 *            the patentes to set	
+	 *            the patentes to set
 	 */
 	public void setPatentes(List<Patente> patentes) {
 		this.patentes = patentes;

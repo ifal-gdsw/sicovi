@@ -29,8 +29,6 @@ public class Militar implements Serializable {
 	private Integer id;
 
 	@Column(nullable = false)
-	private String matricula;
-	@Column(nullable = false)
 	private String nome;
 
 	@ManyToOne
@@ -58,21 +56,6 @@ public class Militar implements Serializable {
 	 */
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	/**
-	 * @return the matricula
-	 */
-	public String getMatricula() {
-		return matricula;
-	}
-
-	/**
-	 * @param matricula
-	 *            the matricula to set
-	 */
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
 	}
 
 	/**
@@ -145,8 +128,6 @@ public class Militar implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result
-				+ ((matricula == null) ? 0 : matricula.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((patente == null) ? 0 : patente.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
@@ -172,11 +153,6 @@ public class Militar implements Serializable {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (matricula == null) {
-			if (other.matricula != null)
-				return false;
-		} else if (!matricula.equals(other.matricula))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)

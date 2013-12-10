@@ -7,7 +7,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class TesteBean {
 	public String teste = "Testinho Brasil";
-
+	
 	/**
 	 * @return the teste
 	 */

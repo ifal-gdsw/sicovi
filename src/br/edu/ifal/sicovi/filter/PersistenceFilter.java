@@ -23,15 +23,17 @@ public class PersistenceFilter implements Filter {
 		em = this.emf.createEntityManager();
 		request.setAttribute("EntityManager", em);
 		em.getTransaction().begin();
-
+		
 		chain.doFilter(request, response);
 
 		try {
 			em.getTransaction().commit();
 		} catch (Exception e) {
-			em.getTransaction().rollback();
+			if (em.getTransaction().isActive())
+				em.getTransaction().rollback();
 		} finally {
-			em.close();
+			if (this.em.isOpen())
+				this.em.close();
 		}
 	}
 
