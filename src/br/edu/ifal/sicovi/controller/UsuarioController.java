@@ -12,6 +12,7 @@ import javax.faces.event.ActionEvent;
 
 import br.edu.ifal.sicovi.dao.UsuarioDAO;
 import br.edu.ifal.sicovi.domain.Usuario;
+import br.edu.ifal.sicovi.utils.Util;
 
 @ManagedBean(name = "usuarioController")
 @RequestScoped
@@ -36,7 +37,9 @@ public class UsuarioController {
 
 	public void cadastrarUsuario(ActionEvent event) {
 		if (this.confirmaSenha.equals(this.usuario.getSenha())) {
-
+			
+			this.usuario.setSenha(Util.md5(this.confirmaSenha));
+			
 			this.dao.save(this.usuario);
 			this.usuario = new Usuario();
 			this.confirmaSenha = "";
